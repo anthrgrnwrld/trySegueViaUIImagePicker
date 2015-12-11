@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PictureViewController.swift
 //  trySegueViaUIImagePicker
 //
 //  Created by Masaki Horimoto on 2015/12/11.
@@ -8,18 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class PictureViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        print("\(__FUNCTION__) is called!")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
-

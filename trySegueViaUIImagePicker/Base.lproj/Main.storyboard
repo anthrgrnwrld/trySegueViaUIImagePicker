@@ -1,25 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="trySegueViaUIImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INa-Bq-5io">
+                                <rect key="frame" x="153" y="319" width="69" height="30"/>
+                                <animations/>
+                                <state key="normal" title="To Library"/>
+                                <connections>
+                                    <action selector="pressToLibraryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ixr-5T-kqO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="INa-Bq-5io" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XWh-dJ-Fzs"/>
+                            <constraint firstItem="INa-Bq-5io" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="olZ-PV-vg4"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="250.5" y="267.5"/>
+        </scene>
+        <!--Picture View Controller-->
+        <scene sceneID="Q5A-UY-Rry">
+            <objects>
+                <viewController id="OMV-fV-CnB" customClass="PictureViewController" customModule="trySegueViaUIImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1NR-2t-KI8"/>
+                        <viewControllerLayoutGuide type="bottom" id="TbG-sw-YpD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d68-LD-HXE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f4e-QA-u67">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f4e-QA-u67" firstAttribute="centerY" secondItem="d68-LD-HXE" secondAttribute="centerY" id="2PA-hz-gJn"/>
+                            <constraint firstItem="f4e-QA-u67" firstAttribute="height" secondItem="d68-LD-HXE" secondAttribute="height" id="TE0-2B-6rE"/>
+                            <constraint firstItem="f4e-QA-u67" firstAttribute="width" secondItem="d68-LD-HXE" secondAttribute="width" id="iti-ON-ICl"/>
+                            <constraint firstItem="f4e-QA-u67" firstAttribute="centerX" secondItem="d68-LD-HXE" secondAttribute="centerX" id="xYI-bu-uCP"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lqq-HQ-Sbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716.5" y="267.5"/>
         </scene>
     </scenes>
 </document>
