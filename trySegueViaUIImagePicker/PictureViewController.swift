@@ -9,12 +9,18 @@
 import UIKit
 
 class PictureViewController: UIViewController {
+
+    var image: UIImage?
+    @IBOutlet weak var selectedImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print("\(__FUNCTION__) is called!")
+        print("\(NSStringFromClass(self.classForCoder)).\(__FUNCTION__) is called!")
+        
+        self.selectedImage.image = self.image
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,5 +28,9 @@ class PictureViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func returnPictureView(segue: UIStoryboardSegue) {
+        print("\(NSStringFromClass(self.classForCoder)).\(__FUNCTION__) is called!")
+    }
+
     
 }

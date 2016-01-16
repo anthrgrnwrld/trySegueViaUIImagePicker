@@ -14,7 +14,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print("\(__FUNCTION__) is called!")
+        print("\(NSStringFromClass(self.classForCoder)).\(__FUNCTION__) is called!")
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +26,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     写真Libraryへ遷移する
     */
     func shiftUIImagePicker() {
-        print("\(__FUNCTION__) is called!")
+        print("\(NSStringFromClass(self.classForCoder)).\(__FUNCTION__) is called!")
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {    //追記
             
@@ -39,7 +39,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             //新しく宣言したViewControllerでカメラとカメラロールのどちらを表示するかを指定
             //以下はカメラロールの例
             //.Cameraを指定した場合はカメラを呼び出し(シミュレーター不可)
-            controller.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            controller.sourceType = .PhotoLibrary
             
             //新たに追加したカメラロール表示ViewControllerをpresentViewControllerにする
             self.presentViewController(controller, animated: true, completion: nil)
@@ -52,9 +52,25 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     */
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo: [String: AnyObject]) {
         
-        print("\(__FUNCTION__) is called!")
+        print("\(NSStringFromClass(self.classForCoder)).\(__FUNCTION__) is called!")
         
-        //ここでPictureViewControllerへ遷移する処理を書けば良い？
+        guard let pictureViewController = storyboard?.instantiateViewControllerWithIdentifier("PictureView") as? PictureViewController else {
+            return
+        }
+        
+        pictureViewController.image = didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        //picker.pushViewController(pictureViewController, animated: true)
+        picker.presentViewController(pictureViewController, animated: true, completion: nil)
+        
+    }
+    
+    /**
+     Picture表示画面に遷移する
+     */
+    func shiftPictureViewController() {
+        print("\(NSStringFromClass(self.classForCoder)).\(__FUNCTION__) is called!")
+        
         
     }
 
@@ -62,7 +78,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     ToLibraryButtonを押した時
     */
     @IBAction func pressToLibraryButton(sender: AnyObject) {
-        print("\(__FUNCTION__) is called!")
+        print("\(NSStringFromClass(self.classForCoder)).\(__FUNCTION__) is called!")
         
         shiftUIImagePicker()
         
@@ -74,7 +90,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     - parameter segue:
     */
     @IBAction func exitToFirstView(segue: UIStoryboardSegue) {
-        print("\(__FUNCTION__) is called!")
+        print("\(NSStringFromClass(self.classForCoder)).\(__FUNCTION__) is called!")
     }
 
 }
